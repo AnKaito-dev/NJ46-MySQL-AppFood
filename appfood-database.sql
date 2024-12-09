@@ -73,3 +73,58 @@ CREATE TABLE like_res (
     FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (res_id) REFERENCES restaurant(res_id)
 );
+
+
+-- Insert data into `user` table
+INSERT INTO user (full_name, email, password) VALUES
+('Nguyen Van A', 'nguyenvana@example.com', 'password123'),
+('Tran Thi B', 'tranthib@example.com', 'password456'),
+('Le Van C', 'levanc@example.com', 'password789'),
+('Pham Thi D', 'phamthid@example.com', 'password000'),
+('Hoang Van E', 'hoangvane@example.com', 'password111');
+
+-- Insert data into `restaurant` table
+INSERT INTO restaurant (res_name, image, `desc`) VALUES
+('Nhà hàng A', 'image_a.jpg', 'Mô tả nhà hàng A'),
+('Nhà hàng B', 'image_b.jpg', 'Mô tả nhà hàng B'),
+('Nhà hàng C', 'image_c.jpg', 'Mô tả nhà hàng C');
+
+-- Insert data into `food_type` table
+INSERT INTO food_type (type_name) VALUES
+('Món chính'),
+('Món phụ'),
+('Đồ uống');
+
+-- Insert data into `food` table
+INSERT INTO food (food_name, image, price, `desc`, type_id) VALUES
+('Phở bò', 'pho_bo.jpg', 50000, 'Món phở bò truyền thống', 1),
+('Cơm gà', 'com_ga.jpg', 45000, 'Món cơm gà hấp dẫn', 1),
+('Trà đá', 'tra_da.jpg', 5000, 'Trà đá mát lạnh', 3),
+('Gỏi cuốn', 'goi_cuon.jpg', 30000, 'Món gỏi cuốn tươi ngon', 2);
+
+-- Insert data into `sub_food` table
+INSERT INTO sub_food (sub_name, sub_price, food_id) VALUES
+('Thêm rau', 5000, 1),
+('Thêm nước sốt', 10000, 2),
+('Thêm đá', 2000, 3);
+
+-- Insert data into `order` table
+INSERT INTO `order` (user_id, food_id, amount, code, arr_sub_id) VALUES
+(1, 1, 2, 'ORD001', '1,2'),
+(2, 2, 1, 'ORD002', '2'),
+(3, 3, 3, 'ORD003', '3'),
+(1, 4, 1, 'ORD004', '');
+
+-- Insert data into `rate_res` table
+INSERT INTO rate_res (user_id, res_id, amount, date_rate) VALUES
+(1, 1, 4, '2023-12-01 10:00:00'),
+(2, 2, 5, '2023-12-02 11:30:00'),
+(3, 3, 3, '2023-12-03 12:45:00');
+
+-- Insert data into `like_res` table
+INSERT INTO like_res (user_id, res_id, date_like) VALUES
+(1, 1, '2023-12-01 09:00:00'),
+(1, 2, '2023-12-01 09:30:00'),
+(2, 2, '2023-12-02 10:00:00'),
+(3, 3, '2023-12-03 11:00:00'),
+(4, 1, '2023-12-04 08:30:00');
